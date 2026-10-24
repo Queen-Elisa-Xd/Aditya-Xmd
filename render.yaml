@@ -1,0 +1,19 @@
+services:
+  - type: worker
+    name: aditya-xmd-text
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    envVars:
+      - key: BOT_NAME
+        value: Aditya Xmd Text
+      - key: PREFIX
+        value: "!"
+      - key: AUTH_DIR
+        value: /var/data/auth_info
+      - key: TZ
+        value: Asia/Kolkata
+    disk:
+      name: aditya-xmd-auth
+      mountPath: /var/data
+      sizeGB: 1
